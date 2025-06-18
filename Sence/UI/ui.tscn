@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://cc7y5nc4tu3kb"]
 
 [ext_resource type="Script" uid="uid://dfmvsikl3olw2" path="res://Script/UI/ui.gd" id="1_2pwlc"]
-[ext_resource type="FontFile" path="res://Asset/Font/AlfaSlabOne-Regular.ttf" id="2_6g08h"]
-[ext_resource type="Texture2D" path="res://Asset/Image/PS_button.png" id="3_dat32"]
+[ext_resource type="FontFile" uid="uid://bm8c28467y1fr" path="res://Asset/Font/AlfaSlabOne-Regular.ttf" id="2_6g08h"]
+[ext_resource type="Texture2D" uid="uid://bb0gnu51t8yau" path="res://Asset/Image/PS_button.png" id="3_dat32"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dat32"]
 bg_color = Color(0, 0.996078, 0.933333, 1)
