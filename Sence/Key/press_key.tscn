@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://dta1cqscvpbb2"]
+
+[ext_resource type="Texture2D" uid="uid://yqhfh506qb24" path="res://Asset/Image/UI/arrow.png" id="1_g8gh4"]
+[ext_resource type="Script" uid="uid://p0sxmjmrw5km" path="res://Script/Key/press_key.gd" id="2_g8gh4"]
+
+[sub_resource type="Animation" id="Animation_g8gh4"]
+resource_name = "Fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EffectSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tr4ol"]
+resource_name = "Fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EffectSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pof5a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EffectSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wa114"]
+_data = {
+&"Fade_in": SubResource("Animation_g8gh4"),
+&"Fade_out": SubResource("Animation_tr4ol"),
+&"RESET": SubResource("Animation_pof5a")
+}
+
+[node name="PressKey" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_g8gh4")
+script = ExtResource("2_g8gh4")
+UniqueName = "Up"
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 1, 1)
+texture = ExtResource("1_g8gh4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wa114")
+}
+
+[node name="HoldCheckingTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="HoldCheckingTimer" to="." method="_on_hold_checking_timer_timeout"]

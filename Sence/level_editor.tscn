@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch3bbrp6k03ut"]
+
+[ext_resource type="Script" uid="uid://cbpfaws2if6jl" path="res://Script/level_editor.gd" id="1_42s02"]
+[ext_resource type="Resource" uid="uid://djijwxpurgutm" path="res://Resource/Level/Main_theme.tres" id="2_p1yr7"]
+
+[node name="LevelEditor" type="Node2D"]
+script = ExtResource("1_42s02")
+LevelInfo = ExtResource("2_p1yr7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["Music"]]
+unique_name_in_owner = true
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

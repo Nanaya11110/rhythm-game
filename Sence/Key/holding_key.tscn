@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxf3fi357e0wr"]
+
+[ext_resource type="Script" uid="uid://cs3b1g6a4bnde" path="res://Script/Key/holding_key.gd" id="1_35f5v"]
+[ext_resource type="Texture2D" uid="uid://yqhfh506qb24" path="res://Asset/Image/UI/arrow.png" id="2_jp175"]
+
+[node name="HoldingKey" type="Node2D"]
+script = ExtResource("1_35f5v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_jp175")
+
+[node name="DurationLine" type="Line2D" parent="."]
+unique_name_in_owner = true
+
+[node name="DurationEndPoint" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="EndSprite" type="Sprite2D" parent="DurationEndPoint"]
+unique_name_in_owner = true
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_jp175")
+
+[node name="ActivateTimmer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ReachListenerTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="ActivateTimmer" to="." method="_on_activate_timmer_timeout"]

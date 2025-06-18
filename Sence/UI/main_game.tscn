@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://ec41c11n5i4l"]
+
+[ext_resource type="Script" uid="uid://cnqulbqlsay2p" path="res://Script/main_Game.gd" id="1_f3rcb"]
+[ext_resource type="Texture2D" uid="uid://s5r3kijshyab" path="res://Asset/Image/Song_Background/Eternal_City/main_menu.png" id="2_bb5vv"]
+[ext_resource type="PackedScene" uid="uid://dta1cqscvpbb2" path="res://Sence/Key/press_key.tscn" id="3_rgi2j"]
+[ext_resource type="PackedScene" uid="uid://cc7y5nc4tu3kb" path="res://Sence/UI/ui.tscn" id="4_ro70c"]
+[ext_resource type="PackedScene" uid="uid://ch3bbrp6k03ut" path="res://Sence/level_editor.tscn" id="5_8v0bb"]
+[ext_resource type="Resource" uid="uid://cbs4646xt85a7" path="res://Resource/Level/TestMusic.tres" id="6_bb5vv"]
+
+[node name="MainGame" type="Control" groups=["main_game"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f3rcb")
+
+[node name="VideoBackground" type="VideoStreamPlayer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand = true
+buffering_msec = 100
+
+[node name="Background" type="TextureRect" parent="." groups=["Background"]]
+unique_name_in_owner = true
+z_index = -669
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bb5vv")
+expand_mode = 1
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="UI" instance=ExtResource("4_ro70c")]
+
+[node name="ArrowKey" type="Node2D" parent="."]
+
+[node name="LeftArrow" parent="ArrowKey" instance=ExtResource("3_rgi2j")]
+position = Vector2(400, 550)
+rotation = -1.5708
+UniqueName = "Left"
+KeyColor = Color(0, 1, 0, 1)
+
+[node name="DownArrow" parent="ArrowKey" instance=ExtResource("3_rgi2j")]
+position = Vector2(550, 550)
+rotation = 3.14159
+UniqueName = "Down"
+UniqueKey = 1
+KeyColor = Color(0, 0, 1, 1)
+
+[node name="UpArrow" parent="ArrowKey" instance=ExtResource("3_rgi2j")]
+position = Vector2(700, 550)
+UniqueKey = 2
+KeyColor = Color(1, 0.87451, 0, 1)
+
+[node name="RightArrow" parent="ArrowKey" instance=ExtResource("3_rgi2j")]
+position = Vector2(850, 550)
+rotation = 1.5708
+UniqueName = "Right"
+UniqueKey = 3
+KeyColor = Color(1, 0, 0, 1)
+
+[node name="LevelEditor" parent="." groups=["LevelEditor"] instance=ExtResource("5_8v0bb")]
+LevelInfo = ExtResource("6_bb5vv")
