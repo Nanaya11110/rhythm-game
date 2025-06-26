@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://yqhfh506qb24" path="res://Asset/Image/UI/arrow.png" id="1_x231w"]
 [ext_resource type="Script" uid="uid://bdrcj4iodegmi" path="res://Script/Key/falling_key.gd" id="2_2otlb"]
 
-[node name="FallkingKey" type="Sprite2D"]
+[node name="FallingKey" type="Sprite2D"]
 modulate = Color(1, 1, 0, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_x231w")
@@ -15,5 +15,6 @@ one_shot = true
 autostart = true
 
 [node name="ActivateTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="ActivateTimer" to="." method="_on_activate_timer_timeout"]

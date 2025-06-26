@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cc7y5nc4tu3kb"]
+[gd_scene load_steps=27 format=3 uid="uid://cc7y5nc4tu3kb"]
 
 [ext_resource type="Script" uid="uid://dfmvsikl3olw2" path="res://Script/UI/ui.gd" id="1_2pwlc"]
 [ext_resource type="FontFile" uid="uid://bm8c28467y1fr" path="res://Asset/Font/AlfaSlabOne-Regular.ttf" id="2_6g08h"]
 [ext_resource type="Texture2D" uid="uid://bb0gnu51t8yau" path="res://Asset/Image/PS_button.png" id="3_dat32"]
+[ext_resource type="PackedScene" uid="uid://bew5ib8chsu6e" path="res://Sence/UI/setting_menu.tscn" id="4_8r4it"]
+[ext_resource type="Texture2D" uid="uid://c2s3jtqxftjav" path="res://Asset/Image/UI/settingButton-removebg-preview.png" id="5_vjq62"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dat32"]
 bg_color = Color(0, 0.996078, 0.933333, 1)
@@ -25,8 +27,80 @@ bg_color = Color(0, 0.8, 0.733333, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce0kd"]
+bg_color = Color(0.564706, 0.564706, 0.564706, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.377919, 0.377919, 0.377919, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43oe5"]
+bg_color = Color(0.239216, 0.239216, 0.239216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.377919, 0.377919, 0.377919, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tumqg"]
 bg_color = Color(0.976471, 0.976471, 0.976471, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.377919, 0.377919, 0.377919, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbbu2"]
+bg_color = Color(0.564964, 0.564961, 0.564961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.377919, 0.377919, 0.377919, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2mhf"]
+bg_color = Color(0.237541, 0.237539, 0.237539, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.377919, 0.377919, 0.377919, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8ptr"]
+bg_color = Color(0, 0.540619, 0.494125, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.377919, 0.377919, 0.377919, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etk8l"]
+bg_color = Color(0, 0.42681, 0.3892, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -185,6 +259,29 @@ _data = {
 &"countDownOut": SubResource("Animation_dat32")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wued"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.325441, 0.325441, 0.325441, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ce0kd"]
+texture = ExtResource("5_vjq62")
+modulate_color = Color(0.442911, 0.442911, 0.442911, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43oe5"]
+texture = ExtResource("5_vjq62")
+modulate_color = Color(0.259294, 0.259294, 0.259294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbbu2"]
+texture = ExtResource("5_vjq62")
+
 [node name="UI" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -315,7 +412,8 @@ text = "FINAL SCORE: "
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.153186, 0.495021, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_6g08h")
 theme_override_font_sizes/font_size = 25
 text = "Perfect: "
@@ -325,6 +423,8 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.797257, 5.02485e-05, 0.610029, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_6g08h")
 theme_override_font_sizes/font_size = 25
 text = "Great:"
@@ -334,6 +434,8 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.260018, 0.479398, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_6g08h")
 theme_override_font_sizes/font_size = 25
 text = "Good"
@@ -343,6 +445,8 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.439049, 0.439049, 0.439049, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_6g08h")
 theme_override_font_sizes/font_size = 25
 text = "Miss:"
@@ -385,10 +489,12 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_dat32")
 text = "Continute"
 
+[node name="SettingMenu" parent="." instance=ExtResource("4_8r4it")]
+layout_mode = 1
+
 [node name="PauseMenu" type="Control" parent="."]
 unique_name_in_owner = true
 process_mode = 3
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -456,8 +562,13 @@ custom_minimum_size = Vector2(125, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_ce0kd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_43oe5")
 theme_override_styles/normal = SubResource("StyleBoxFlat_tumqg")
 text = "Exit"
 
@@ -467,8 +578,13 @@ custom_minimum_size = Vector2(125, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_kbbu2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u2mhf")
 theme_override_styles/normal = SubResource("StyleBoxFlat_tumqg")
 text = "Restart"
 
@@ -480,6 +596,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_c8ptr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_etk8l")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2b1ku")
 text = "Continute"
 
@@ -504,8 +622,59 @@ libraries = {
 &"": SubResource("AnimationLibrary_evb32")
 }
 
+[node name="SettingButtonContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_right = 2.0
+offset_bottom = 82.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="Panel" parent="SettingButtonContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5wued")
+
+[node name="SettingButton" type="Button" parent="SettingButtonContainer/Panel"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_ce0kd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_43oe5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kbbu2")
+
+[node name="MusicTimeTrack" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "00:00"
+
 [connection signal="pressed" from="WinMenu/Panel/MarginContainer/VBoxContainer/MarginContainer/ContinuteFromWinMenuButton" to="." method="_on_continute_from_win_menu_button_pressed"]
 [connection signal="pressed" from="PauseMenu/ButtonOutContainer/VBoxContainer/ButtonContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="PauseMenu/ButtonOutContainer/VBoxContainer/ButtonContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="PauseMenu/ButtonOutContainer/VBoxContainer/ButtonContainer/ContinuteButton" to="." method="_on_continute_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="SettingButtonContainer/Panel/SettingButton" to="." method="_on_setting_button_pressed"]

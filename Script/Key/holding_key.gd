@@ -1,55 +1,53 @@
 extends Node2D
 class_name HoldingKey
 
-@export var FallingSpeed :=5.5
-
+@export var FallingSpeed :=500
+var hold_duration:= 0.0
 var UniqeName :String
+var PressKeyNode: PressKey
 var TargetKey_Y_Position:=0
 var TargetKey_Press_offSet:= 100
 var Is_holding :=false 
 var Has_SetUp:= false
 var IsActivate :=false
 
-var Good_point := 20
-var Greate_point :=50
-var Perfect_point :=100
-var Miss_point := 0
+@export_category("Point")
+@export var Miss_point := 0
+@export var Good_point := 20
+@export var Greate_point :=50
+@export var Perfect_point :=100
 
-
-var Miss_position := 100
-var Good_position := 50
-var Great_position := 35
-var Perfect_position := 15
+@export_category("Position")
+@export var Miss_position := 100
+@export var Good_position := 50
+@export var Great_position := 35
+@export var Perfect_position := 15
 
 func _ready() -> void:
 	await self.ready
-	$ReachListenerTimer.start()
-	Global.register_falling_key.emit(UniqeName, self)
 	Global.ChangeActiveWhenChangeSence.connect(queue_free)
 func _exit_tree() -> void:
-	Global.unregister_falling_key.emit(UniqeName,self)
+	PressKeyNode.unregister_falling_key(self)
 func _process(delta: float) -> void:
 	if !IsActivate: return
 	#CACULATE THE FALLING TIME IF NEED
-	#if abs(TargetKey_Y_Position - position.y) <=15: print(abs($ReachListenerTimer.time_left - $ReachListenerTimer.wait_time))
-	#DONT MOVE THE START IF HOLDING< JUST MOVE THE DURATION AND END POINT
-	if !Is_holding: position.y += FallingSpeed
-	else: 
-		%DurationEndPoint.position.y +=FallingSpeed
-		%DurationLine.points = PackedVector2Array([Vector2.ZERO,%DurationEndPoint.position])
+	#if abs(TargetKey_Y_Position - position.y) <=15: printerr(abs($ReachListenerTimer.time_left - $ReachListenerTimer.wait_time))
+	#DONT MOVE THE START IF HOLDING, JUST MOVE THE DURATION AND END POINT
+	if !Is_holding: position.y += FallingSpeed * delta
+	else:
+		$DurationEndPoint.position.y += FallingSpeed * delta
+		var line_end = Vector2(0, $DurationEndPoint.position.y)
+		%DurationLine.points = PackedVector2Array([Vector2.ZERO, line_end])
+		#print($DurationEndPoint.position)
 	#HAS PASS THE LISTENER KEY
-	if global_position.y > TargetKey_Y_Position + TargetKey_Press_offSet: 
+	if global_position.y > TargetKey_Y_Position + TargetKey_Press_offSet || $DurationEndPoint.global_position.y > TargetKey_Y_Position + TargetKey_Press_offSet: 
 		Global.PointInc.emit(Miss_point)
 		queue_free()
 
 func _input(event: InputEvent) -> void:
 	if !IsActivate: return
 	#CHECK IF THIS IS THE CLOSET KEY
-	var closetNode: Node
-	var main_game_node =  get_tree().get_nodes_in_group("main_game")
-	if main_game_node: 
-		main_game_node = main_game_node[0]
-		closetNode =  main_game_node.get_closest_holding_key(UniqeName)
+	var closetNode =  PressKeyNode.get_closest_key()
 	var DistanceToPressArrow = TargetKey_Y_Position - position.y
 	var DistanceWhenRelese = (position.y - $DurationEndPoint.position.y) - TargetKey_Y_Position
 	#DONT CHECK IF NOT IN RANGE
@@ -81,20 +79,23 @@ func _input(event: InputEvent) -> void:
 			queue_free()
 	
 
-func SetUp(ArrowPosition: Vector2, ArrowName: String, Arrowrrotation:float, KeyColor: Color,duration:float,delay:float):
+func SetUp(PressKeyNodeP: PressKey,duration:float,delay:float):
 	await self.ready
 	$ActivateTimmer.start(delay)
+	PressKeyNode = PressKeyNodeP
+	PressKeyNodeP.register_falling_key(self)
 	position.y = -100
-	position.x = ArrowPosition.x
-	TargetKey_Y_Position = ArrowPosition.y
-	$Sprite2D.rotation = Arrowrrotation
-	$%EndSprite.rotation = Arrowrrotation
-	UniqeName = ArrowName
-	modulate = KeyColor
-	var Hold_height = (duration * FallingSpeed * 60.0) *-1
+	position.x = PressKeyNodeP.position.x
+	TargetKey_Y_Position = PressKeyNodeP.position.y
+	$Sprite2D.rotation = PressKeyNodeP.rotation
+	$%EndSprite.rotation = PressKeyNodeP.rotation
+	UniqeName = PressKeyNodeP.UniqueName
+	modulate = PressKeyNodeP.KeyColor
+	var Hold_height = -duration * FallingSpeed
 	%DurationEndPoint.position = Vector2(0,Hold_height)
 	%DurationLine.points = PackedVector2Array([Vector2.ZERO,%DurationEndPoint.position])
 func SetActivate(value: bool):
 	IsActivate = value
 func _on_activate_timmer_timeout() -> void:
 	SetActivate(true)
+	$ReachListenerTimer.start()

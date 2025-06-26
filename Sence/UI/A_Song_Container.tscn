@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://s5r3kijshyab" path="res://Asset/Image/Song_Background/Eternal_City/main_menu.png" id="1_ei3ww"]
 [ext_resource type="Script" uid="uid://tlfa38sh14xv" path="res://Script/UI/a_song_container.gd" id="1_j2d3r"]
-[ext_resource type="Texture2D" uid="uid://dgdy4spw1ah14" path="res://Asset/Image/diamon_shape-removebg-preview.png" id="2_j2d3r"]
+[ext_resource type="Texture2D" uid="uid://dgdy4spw1ah14" path="res://Asset/Image/UI/diamon_shape-removebg-preview.png" id="2_j2d3r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7d4f"]
 bg_color = Color(0.388235, 0.34902, 0.482353, 1)
@@ -17,7 +17,7 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihwt8"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2d3r"]
 bg_color = Color(0.243137, 0.290196, 0.384314, 1)
 border_width_left = 2
 border_width_top = 2
@@ -147,7 +147,7 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_ihwt8")
+theme_override_styles/panel = SubResource("StyleBoxFlat_j2d3r")
 
 [node name="SongVisualLabel" type="Label" parent="MarginContainer/HBoxContainer/Label"]
 unique_name_in_owner = true
@@ -157,7 +157,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.631373, 0.517647, 0.286275, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "MV"
 horizontal_alignment = 1
 

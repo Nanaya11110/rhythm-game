@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dta1cqscvpbb2"]
+[gd_scene load_steps=8 format=3 uid="uid://dta1cqscvpbb2"]
 
 [ext_resource type="Texture2D" uid="uid://yqhfh506qb24" path="res://Asset/Image/UI/arrow.png" id="1_g8gh4"]
 [ext_resource type="Script" uid="uid://p0sxmjmrw5km" path="res://Script/Key/press_key.gd" id="2_g8gh4"]
+[ext_resource type="AudioStream" uid="uid://bf6y1kqvdta7a" path="res://Asset/Sound/[PressSoundEffect]44_espada_clavandose-44221.mp3" id="3_7ohbx"]
 
 [sub_resource type="Animation" id="Animation_g8gh4"]
 resource_name = "Fade_in"
@@ -75,6 +76,10 @@ libraries = {
 [node name="HoldCheckingTimer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="PressSoundEffect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_7ohbx")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="HoldCheckingTimer" to="." method="_on_hold_checking_timer_timeout"]

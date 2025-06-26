@@ -11,11 +11,13 @@ var GoodPressCount:= 0
 var MissPressCount:= 0
 var ComboShowText := ""
 var IsPause :=false
-
+var IsResumeCountDown :=false
 @onready var player_main_ui: Control = %PlayerMainUI
 @onready var pause_menu: Control = %PauseMenu
 @onready var win_menu: Control = %WinMenu
 @onready var button_out_container: Panel = %ButtonOutContainer
+@onready var setting_menu: Panel = $SettingMenu
+
 
 @onready var point_label: Label = %PointLabel
 @onready var combo_type_label: Label = %ComboShowLabel
@@ -30,17 +32,21 @@ var IsPause :=false
 
 
 
-
 func _ready() -> void:
 	Global.PointInc.connect(Callable(self,"PointInc"))
 	Global.SongFinished.connect(func(): WinMenu(PerfectPressCount,GreatPressCount,GoodPressCount,MissPressCount))
 	pause_menu.visible = false
 	win_menu.visible = false
+	setting_menu.visible = false
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Exit"): 
+	if event.is_action_pressed("Exit") && !IsResumeCountDown:
+		if setting_menu.visible: 
+			setting_menu.visible = false
+			get_tree().paused = false
+			return
 		if IsPause: Resume()
-		else: Pause()
+		else : Pause()
 
 func PointInc(PointInc:int):
 	Point += PointInc
@@ -83,16 +89,19 @@ func Resume():
 	get_tree().paused = false
 	pause_menu.visible = false
 	count_down_label.visible = false
-	PauseCountDownSecond = 4
+	PauseCountDownSecond = 3
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Fade_in": $AnimationPlayer.play("Fade_out")
 	if anim_name == "countDownOut": $AnimationPlayer.play("countDownIn")
 	if anim_name == "countDownIn": ResumeCountDown()
 
 func ResumeCountDown():
+	IsResumeCountDown = true
+	
 	count_down_label.visible = true
 	button_out_container.visible = false
 	if PauseCountDownSecond == 0:  
+		IsResumeCountDown = false
 		$AnimationPlayer.play("countDownOut")
 		count_down_label.text = str(PauseCountDownSecond)
 		Resume()
@@ -100,7 +109,6 @@ func ResumeCountDown():
 		$AnimationPlayer.play("countDownOut")
 		count_down_label.text = str(PauseCountDownSecond)
 		PauseCountDownSecond = PauseCountDownSecond - 1
-		
 
 func _on_exit_button_pressed() -> void:
 	Resume()
@@ -111,7 +119,6 @@ func _on_continute_button_pressed() -> void:
 func _on_restart_button_pressed() -> void:
 	Resume()
 	Global.emit_signal("ChangeActiveWhenChangeSence")
-	await get_tree().process_frame
 	get_tree().reload_current_scene()
 
 
@@ -139,3 +146,6 @@ func CaculateFinalRank(Perfect: int, Great: int, Good: int, Miss: int) -> String
 
 func _on_continute_from_win_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Sence/UI/main_menu.tscn")
+func _on_setting_button_pressed() -> void:
+	get_tree().paused = true
+	setting_menu.visible = true

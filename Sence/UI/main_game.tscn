@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dta1cqscvpbb2" path="res://Sence/Key/press_key.tscn" id="3_rgi2j"]
 [ext_resource type="PackedScene" uid="uid://cc7y5nc4tu3kb" path="res://Sence/UI/ui.tscn" id="4_ro70c"]
 [ext_resource type="PackedScene" uid="uid://ch3bbrp6k03ut" path="res://Sence/level_editor.tscn" id="5_8v0bb"]
-[ext_resource type="Resource" uid="uid://cbs4646xt85a7" path="res://Resource/Level/TestMusic.tres" id="6_bb5vv"]
+[ext_resource type="Resource" uid="uid://jxmnao33w0ir" path="res://Resource/Level/TestMusic.tres" id="6_bb5vv"]
 
 [node name="MainGame" type="Control" groups=["main_game"]]
 layout_mode = 3

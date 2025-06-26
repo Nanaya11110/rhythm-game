@@ -1,17 +1,25 @@
-[gd_scene load_steps=37 format=3 uid="uid://cislrni88xiwo"]
+[gd_scene load_steps=68 format=3 uid="uid://cislrni88xiwo"]
 
 [ext_resource type="Script" uid="uid://q11b5m04ifma" path="res://Script/UI/main_menu.gd" id="1_3hhv6"]
 [ext_resource type="Texture2D" uid="uid://s5r3kijshyab" path="res://Asset/Image/Song_Background/Eternal_City/main_menu.png" id="2_3hhv6"]
-[ext_resource type="Texture2D" uid="uid://8775dqtvv0gq" path="res://Asset/Image/PS_song_selection.png" id="2_ga64o"]
+[ext_resource type="AudioStream" uid="uid://bf6y1kqvdta7a" path="res://Asset/Sound/[PressSoundEffect]44_espada_clavandose-44221.mp3" id="2_ertlw"]
 [ext_resource type="PackedScene" uid="uid://dg2idlh7ls536" path="res://Sence/UI/A_Song_Container.tscn" id="2_ihwt8"]
-[ext_resource type="Resource" uid="uid://cevve37isx7t6" path="res://Resource/Level/Person_in_the_Darkness.tres" id="3_ihwt8"]
-[ext_resource type="Texture2D" uid="uid://doohcfye3ea4n" path="res://Asset/Image/EC_logo-removebg-preview.png" id="3_qmjju"]
-[ext_resource type="Texture2D" uid="uid://fksyxybqafx" path="res://Asset/Image/PS_log-removebg-preview.png" id="4_8eml5"]
-[ext_resource type="Resource" uid="uid://xd0f8m408v41" path="res://Resource/Level/God_chess_board.tres" id="5_meewa"]
-[ext_resource type="Resource" uid="uid://djijwxpurgutm" path="res://Resource/Level/Main_theme.tres" id="6_3hhv6"]
+[ext_resource type="Resource" uid="uid://dcfgbfb5x5mv1" path="res://Resource/Level/Eternal_City/Person_in_the_Darkness.tres" id="3_ihwt8"]
+[ext_resource type="Texture2D" uid="uid://doohcfye3ea4n" path="res://Asset/Image/Unit_Logo/EC_logo-removebg-preview.png" id="3_qmjju"]
+[ext_resource type="Texture2D" uid="uid://c2s3jtqxftjav" path="res://Asset/Image/UI/settingButton-removebg-preview.png" id="3_vxk5r"]
+[ext_resource type="Texture2D" uid="uid://fksyxybqafx" path="res://Asset/Image/Unit_Logo/PS_log-removebg-preview.png" id="4_8eml5"]
+[ext_resource type="Texture2D" uid="uid://bao0qjsxyj15h" path="res://Asset/Image/Unit_Logo/She_Is_Legend_Logo-removebg-preview.png" id="5_cm1jk"]
+[ext_resource type="Resource" uid="uid://dcfpiyx7q4maq" path="res://Resource/Level/Eternal_City/God_chess_board.tres" id="5_meewa"]
+[ext_resource type="Resource" uid="uid://dpgnl0de38tnm" path="res://Resource/Level/Eternal_City/Main_theme.tres" id="6_3hhv6"]
 [ext_resource type="Texture2D" uid="uid://bscmm7tqthfoy" path="res://Asset/Image/Song_Background/Eternal_City/God's_ChessBoard.png" id="7_meewa"]
-[ext_resource type="Resource" uid="uid://bb8pt65yp77x7" path="res://Resource/Level/Meaning_of_Sacrifire.tres" id="8_ev0b4"]
-[ext_resource type="Resource" uid="uid://co8pdrpnqkylp" path="res://Resource/Level/EvnyBaby.tres" id="10_8eml5"]
+[ext_resource type="Resource" uid="uid://snw7myty81fe" path="res://Resource/Level/Eternal_City/Meaning_of_Sacrifire.tres" id="8_ev0b4"]
+[ext_resource type="Resource" uid="uid://jxmnao33w0ir" path="res://Resource/Level/TestMusic.tres" id="8_s6e1d"]
+[ext_resource type="Resource" uid="uid://conhd566p447m" path="res://Resource/Level/Project_Sekai/EvnyBaby.tres" id="10_8eml5"]
+[ext_resource type="Resource" uid="uid://ir11nb00b0k4" path="res://Resource/Level/Heaven_Burn_Red/Burn_My_Soul.tres" id="12_js0dy"]
+[ext_resource type="Resource" uid="uid://d2n4wcomlnikj" path="res://Resource/Level/Heaven_Burn_Red/Before_I_Rise.tres" id="13_vxk5r"]
+[ext_resource type="Resource" uid="uid://db2gnfwjj2jby" path="res://Resource/Level/Heaven_Burn_Red/Dance_Dance_Dance.tres" id="14_klyq2"]
+[ext_resource type="Resource" uid="uid://dnb3hosp1twte" path="res://Resource/Level/Mili/Gone_Angel.tres" id="16_ertlw"]
+[ext_resource type="PackedScene" uid="uid://bew5ib8chsu6e" path="res://Sence/UI/setting_menu.tscn" id="17_klyq2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6ooy"]
 bg_color = Color(6.73831e-07, 0.680378, 0.587407, 1)
@@ -30,25 +38,80 @@ texture = ExtResource("3_qmjju")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cm1jk"]
 texture = ExtResource("4_8eml5")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ror7b"]
+texture = ExtResource("5_cm1jk")
+region_rect = Rect2(86.5, 100.546, 331, 252.118)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_js0dy"]
 bg_color = Color(0.388235, 0.34902, 0.478431, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ys6p4"]
-bg_color = Color(1, 0.333333, 0.670588, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cm1jk"]
-bg_color = Color(0.388235, 0.34902, 0.478431, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxk5r"]
-bg_color = Color(0.388235, 0.34902, 0.478431, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ror7b"]
-bg_color = Color(0.388235, 0.34902, 0.478431, 1)
+bg_color = Color(1, 0.333333, 0.670588, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klyq2"]
 bg_color = Color(0.388235, 0.34902, 0.478431, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8lir"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ww5fs"]
+bg_color = Color(0.388235, 0.34902, 0.478431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muwrp"]
+bg_color = Color(1, 0.333333, 0.670588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnb2v"]
+bg_color = Color(0.388235, 0.34902, 0.478431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6njow"]
+bg_color = Color(0.388235, 0.34902, 0.478431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m02dt"]
+bg_color = Color(1, 0.333333, 0.670588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0efnc"]
+bg_color = Color(0.388235, 0.34902, 0.478431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r351v"]
+bg_color = Color(0.388235, 0.34902, 0.478431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rm7t"]
+bg_color = Color(1, 0.333333, 0.670588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eotl7"]
+bg_color = Color(0.388235, 0.34902, 0.478431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jl0d"]
+bg_color = Color(0.388235, 0.34902, 0.478431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qh7fj"]
+bg_color = Color(1, 0.333333, 0.670588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ews1l"]
+bg_color = Color(0.388235, 0.34902, 0.478431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frafo"]
+bg_color = Color(0.388235, 0.34902, 0.478431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63gyu"]
+bg_color = Color(1, 0.333333, 0.670588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8vuf"]
+bg_color = Color(0.388235, 0.34902, 0.478431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lghdn"]
+bg_color = Color(0.388235, 0.34902, 0.478431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vc1lh"]
+bg_color = Color(1, 0.333333, 0.670588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrls5"]
+bg_color = Color(0.388235, 0.34902, 0.478431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqjwc"]
+bg_color = Color(0.388235, 0.34902, 0.478431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46lt2"]
+bg_color = Color(1, 0.333333, 0.670588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6f47r"]
 bg_color = Color(0.388235, 0.34902, 0.478431, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6e1d"]
@@ -173,6 +236,32 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4k1t"]
+bg_color = Color(0.533333, 0.54902, 0.576471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmerj"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.325441, 0.325441, 0.325441, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klyq2"]
+texture = ExtResource("3_vxk5r")
+modulate_color = Color(0.442911, 0.442911, 0.442911, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s6e1d"]
+texture = ExtResource("3_vxk5r")
+modulate_color = Color(0.259294, 0.259294, 0.259294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k4k1t"]
+texture = ExtResource("3_vxk5r")
+
 [node name="Main_menu" type="Control" groups=["main_menu"]]
 layout_mode = 3
 anchors_preset = 15
@@ -184,6 +273,9 @@ script = ExtResource("1_3hhv6")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+
+[node name="SoundEffecCheck" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ertlw")
 
 [node name="MainBackground" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -209,7 +301,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MainUIContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -217,11 +309,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="UnitContainer" type="ScrollContainer" parent="HBoxContainer"]
+[node name="UnitContainer" type="ScrollContainer" parent="MainUIContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/UnitContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainUIContainer/UnitContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -230,20 +322,20 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/UnitContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainUIContainer/UnitContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="AllSongButton" type="Button" parent="HBoxContainer/UnitContainer/MarginContainer/VBoxContainer"]
+[node name="AllSongButton" type="Button" parent="MainUIContainer/UnitContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxFlat_d6ooy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_uplus")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ulkte")
 
-[node name="Label" type="Label" parent="HBoxContainer/UnitContainer/MarginContainer/VBoxContainer/AllSongButton"]
+[node name="Label" type="Label" parent="MainUIContainer/UnitContainer/MarginContainer/VBoxContainer/AllSongButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -258,14 +350,14 @@ text = "All"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EternalCitySongButton" type="Button" parent="HBoxContainer/UnitContainer/MarginContainer/VBoxContainer"]
+[node name="EternalCitySongButton" type="Button" parent="MainUIContainer/UnitContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxFlat_d6ooy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_uplus")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ulkte")
 
-[node name="Label" type="Label" parent="HBoxContainer/UnitContainer/MarginContainer/VBoxContainer/EternalCitySongButton"]
+[node name="Label" type="Label" parent="MainUIContainer/UnitContainer/MarginContainer/VBoxContainer/EternalCitySongButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -279,14 +371,14 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_8eml5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ProjectSekaiSongButton" type="Button" parent="HBoxContainer/UnitContainer/MarginContainer/VBoxContainer"]
+[node name="ProjectSekaiSongButton" type="Button" parent="MainUIContainer/UnitContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxFlat_d6ooy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_uplus")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ulkte")
 
-[node name="Label" type="Label" parent="HBoxContainer/UnitContainer/MarginContainer/VBoxContainer/ProjectSekaiSongButton"]
+[node name="Label" type="Label" parent="MainUIContainer/UnitContainer/MarginContainer/VBoxContainer/ProjectSekaiSongButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -300,20 +392,39 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cm1jk")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="HeavenBurnRedSongButton" type="Button" parent="MainUIContainer/UnitContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_d6ooy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uplus")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ulkte")
+
+[node name="Label" type="Label" parent="MainUIContainer/UnitContainer/MarginContainer/VBoxContainer/HeavenBurnRedSongButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_ror7b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainUIContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainUIContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SongContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="SongContainer" type="ScrollContainer" parent="MainUIContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -322,64 +433,103 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer"]
+[node name="Panel" type="Panel" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="SongsContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer"]
+[node name="SongsContainer" type="VBoxContainer" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PersonInTheDarknes" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer/SongsContainer" instance=ExtResource("2_ihwt8")]
+[node name="PersonInTheDarknes" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer/SongsContainer" instance=ExtResource("2_ihwt8")]
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxFlat_js0dy")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ys6p4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_cm1jk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vxk5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_klyq2")
 SongInfo = ExtResource("3_ihwt8")
 
-[node name="MainTheme" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer/SongsContainer" instance=ExtResource("2_ihwt8")]
+[node name="PersonInTheDarknes2" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer/SongsContainer" instance=ExtResource("2_ihwt8")]
 layout_mode = 2
-theme_override_styles/hover = SubResource("StyleBoxFlat_vxk5r")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ys6p4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ror7b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_js0dy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vxk5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_klyq2")
+SongInfo = ExtResource("8_s6e1d")
+
+[node name="MainTheme" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer/SongsContainer" instance=ExtResource("2_ihwt8")]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_ww5fs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_muwrp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wnb2v")
 SongInfo = ExtResource("6_3hhv6")
 Id = 1
 
-[node name="GodChessBoard" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer/SongsContainer" instance=ExtResource("2_ihwt8")]
+[node name="GodChessBoard" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer/SongsContainer" instance=ExtResource("2_ihwt8")]
 layout_mode = 2
-theme_override_styles/hover = SubResource("StyleBoxFlat_klyq2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ys6p4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_c8lir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6njow")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m02dt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0efnc")
 SongInfo = ExtResource("5_meewa")
 Id = 2
 
-[node name="MeaingOfSacrifire" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer/SongsContainer" instance=ExtResource("2_ihwt8")]
+[node name="MeaingOfSacrifire" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer/SongsContainer" instance=ExtResource("2_ihwt8")]
 layout_mode = 2
-theme_override_styles/hover = SubResource("StyleBoxFlat_klyq2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ys6p4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_c8lir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r351v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7rm7t")
+theme_override_styles/normal = SubResource("StyleBoxFlat_eotl7")
 SongInfo = ExtResource("8_ev0b4")
 Id = 2
 
-[node name="EnvyBaby" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer/SongsContainer" instance=ExtResource("2_ihwt8")]
+[node name="EnvyBaby" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer/SongsContainer" instance=ExtResource("2_ihwt8")]
 layout_mode = 2
-theme_override_styles/hover = SubResource("StyleBoxFlat_klyq2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ys6p4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_c8lir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1jl0d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qh7fj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ews1l")
 SongInfo = ExtResource("10_8eml5")
 Id = 2
 
-[node name="SongInfoContainer" type="CenterContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="BurnMySouol" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer/SongsContainer" instance=ExtResource("2_ihwt8")]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_frafo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_63gyu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a8vuf")
+SongInfo = ExtResource("12_js0dy")
+Id = 2
+
+[node name="BeforeIRise" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer/SongsContainer" instance=ExtResource("2_ihwt8")]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_lghdn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vc1lh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrls5")
+SongInfo = ExtResource("13_vxk5r")
+Id = 2
+
+[node name="DanceDanceDance" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer/SongsContainer" instance=ExtResource("2_ihwt8")]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_lqjwc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_46lt2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6f47r")
+SongInfo = ExtResource("14_klyq2")
+Id = 2
+
+[node name="DanceDanceDance2" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongContainer/MarginContainer/SongsContainer" instance=ExtResource("2_ihwt8")]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_lqjwc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_46lt2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6f47r")
+SongInfo = ExtResource("16_ertlw")
+Id = 2
+
+[node name="SongInfoContainer" type="CenterContainer" parent="MainUIContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongInfoContainer"]
+[node name="Panel" type="Panel" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongInfoContainer"]
 custom_minimum_size = Vector2(410, 410)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_s6e1d")
 
-[node name="SongBigImage" type="TextureRect" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel"]
+[node name="SongBigImage" type="TextureRect" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 1
@@ -398,7 +548,7 @@ texture = ExtResource("7_meewa")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage"]
+[node name="MarginContainer" type="MarginContainer" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -409,18 +559,18 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="EasyButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="EasyButton" type="Button" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -430,14 +580,14 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_3hhv6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ev0b4")
 text = "EASY"
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="NormalButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="NormalButton" type="Button" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer/MarginContainer2"]
 custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -448,14 +598,14 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ev0b4")
 text = "NORMAL"
 autowrap_mode = 2
 
-[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HardButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer/MarginContainer3"]
+[node name="HardButton" type="Button" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer/MarginContainer3"]
 custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -465,14 +615,14 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_3hhv6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ev0b4")
 text = "HARD"
 
-[node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer"]
+[node name="MarginContainer4" type="MarginContainer" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="ExpertButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer/MarginContainer4"]
+[node name="ExpertButton" type="Button" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer/MarginContainer4"]
 custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -482,14 +632,14 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_3hhv6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ev0b4")
 text = "EXPERT"
 
-[node name="MarginContainer5" type="MarginContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer"]
+[node name="MarginContainer5" type="MarginContainer" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="MasterButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer/MarginContainer5"]
+[node name="MasterButton" type="Button" parent="MainUIContainer/VBoxContainer/HBoxContainer/SongInfoContainer/Panel/SongBigImage/MarginContainer/VBoxContainer/MarginContainer5"]
 custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -499,12 +649,12 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_3hhv6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ev0b4")
 text = "MASTER"
 
-[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer"]
+[node name="Panel" type="Panel" parent="MainUIContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qmjju")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainUIContainer/VBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -513,14 +663,14 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Panel/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MainUIContainer/VBoxContainer/Panel/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="SetSongBackgroundButton" type="Button" parent="HBoxContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2"]
+[node name="SetSongBackgroundButton" type="Button" parent="MainUIContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -530,20 +680,21 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 15
+theme_override_styles/disabled = SubResource("StyleBoxFlat_47asy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_47asy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_88h74")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jnhti")
 text = "MV
 "
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Panel/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainUIContainer/VBoxContainer/Panel/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="PlayButton" type="Button" parent="HBoxContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer"]
+[node name="PlayButton" type="Button" parent="MainUIContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
@@ -564,13 +715,76 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_bd3df")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8eml5")
 text = "Play"
 
-[node name="PsSongSelection" type="Sprite2D" parent="."]
-position = Vector2(-434, 195)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_ga64o")
+[node name="SettingButtonContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -262.0
+offset_right = 2.0
+offset_bottom = 82.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[connection signal="pressed" from="HBoxContainer/UnitContainer/MarginContainer/VBoxContainer/AllSongButton" to="." method="_on_all_song_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/UnitContainer/MarginContainer/VBoxContainer/EternalCitySongButton" to="." method="_on_eternal_city_song_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/UnitContainer/MarginContainer/VBoxContainer/ProjectSekaiSongButton" to="." method="_on_project_sekai_song_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/SetSongBackgroundButton" to="." method="_on_set_song_background_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingButtonContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="EditModeCheckButton" type="CheckButton" parent="SettingButtonContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxFlat_k4k1t")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_k4k1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_k4k1t")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_k4k1t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k4k1t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_k4k1t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k4k1t")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_k4k1t")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k4k1t")
+text = "Edit Mode:"
+
+[node name="Panel4" type="Panel" parent="SettingButtonContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jmerj")
+
+[node name="SettingButton" type="Button" parent="SettingButtonContainer/HBoxContainer/Panel4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_klyq2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s6e1d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_k4k1t")
+
+[node name="SettingMenu" parent="." instance=ExtResource("17_klyq2")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[connection signal="pressed" from="MainUIContainer/UnitContainer/MarginContainer/VBoxContainer/AllSongButton" to="." method="_on_all_song_button_pressed"]
+[connection signal="pressed" from="MainUIContainer/UnitContainer/MarginContainer/VBoxContainer/EternalCitySongButton" to="." method="_on_eternal_city_song_button_pressed"]
+[connection signal="pressed" from="MainUIContainer/UnitContainer/MarginContainer/VBoxContainer/ProjectSekaiSongButton" to="." method="_on_project_sekai_song_button_pressed"]
+[connection signal="pressed" from="MainUIContainer/UnitContainer/MarginContainer/VBoxContainer/HeavenBurnRedSongButton" to="." method="_on_heaven_burn_red_song_button_pressed"]
+[connection signal="pressed" from="MainUIContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer2/SetSongBackgroundButton" to="." method="_on_set_song_background_button_pressed"]
+[connection signal="pressed" from="MainUIContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="toggled" from="SettingButtonContainer/HBoxContainer/EditModeCheckButton" to="." method="_on_edit_mode_check_button_toggled"]
+[connection signal="pressed" from="SettingButtonContainer/HBoxContainer/Panel4/SettingButton" to="." method="_on_setting_button_pressed"]

@@ -9,8 +9,11 @@ class_name Level
 @export var BackgroundMV: VideoStream
 @export var Difficulty: int
 @export var HasMv : bool
+
 @export var category: categoryType 
 enum categoryType{
 	EternalCity,
-	ProjectSekai
+	ProjectSekai,
+	HeavenBurnRed,
+	Mili
 	}

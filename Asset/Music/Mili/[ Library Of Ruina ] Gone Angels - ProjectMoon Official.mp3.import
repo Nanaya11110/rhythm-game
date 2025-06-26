@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmwmj4afvpkfy"
+path="res://.godot/imported/[ Library Of Ruina ] Gone Angels - ProjectMoon Official.mp3-9650e20d305fce1720f3cc1edc2358ac.mp3str"
+
+[deps]
+
+source_file="res://Asset/Music/Mili/[ Library Of Ruina ] Gone Angels - ProjectMoon Official.mp3"
+dest_files=["res://.godot/imported/[ Library Of Ruina ] Gone Angels - ProjectMoon Official.mp3-9650e20d305fce1720f3cc1edc2358ac.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

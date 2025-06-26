@@ -1,44 +1,43 @@
 extends Sprite2D
 class_name FallingKey
-@export var FallingSpeed :=5.5
-
+@export var FallingSpeed :=500
+var PresskeyNode: PressKey
 var UniqeName :String
 var TargetKey_Y_Position:int
 var TargetKey_Press_offSet:= 100
 var IsActivate :=false
 
-var Miss_point := 0
-var Good_point := 20
-var Great_point :=50
-var Perfect_point :=100
+@export_category("Point")
+@export var Miss_point := 0
+@export var Good_point := 20
+@export var Great_point :=50
+@export var Perfect_point :=100
 
-
-var Miss_position := 100
-var Good_position := 50
-var Great_position := 35
-var Perfect_position := 15
-
+@export_category("Position")
+@export var Miss_position := 100
+@export var Good_position := 50
+@export var Great_position := 35
+@export var Perfect_position := 15
+var Music: AudioStreamPlayer
+var delay:float
 func _ready() -> void:
 	await  self.ready
-	$ReachPressKey.start()
-	Global.register_falling_key.emit(UniqeName, self)
 	Global.ChangeActiveWhenChangeSence.connect(queue_free)
 func _exit_tree():
-	Global.unregister_falling_key.emit(UniqeName, self)
+	PresskeyNode.unregister_falling_key(self)
 func _process(delta: float) -> void:
-	if !IsActivate: 
-		return
-	position.y += FallingSpeed
+	if !IsActivate: return
+	position.y += FallingSpeed * delta
 	#CACULATE THE FALLING TIME IF NEED
-	#if abs(TargetKey_Y_Position - position.y) <=15: print(abs($ReachPressKey.time_left - $ReachPressKey.wait_time))
+	#if abs(TargetKey_Y_Position - position.y) <= 5:
+		#var now = Music.get_playback_position()
+		#print("MUSIC TIME: ", now, " - ",)
 	if position.y > TargetKey_Y_Position + Good_position:
 		Global.PointInc.emit(Miss_point)
 		queue_free()
 func _input(event: InputEvent) -> void:
 	var main_game_node =  get_tree().get_nodes_in_group("main_game")
-	var closetNode: Node
-	main_game_node = main_game_node[0]
-	closetNode =  main_game_node.get_closest_falling_key(UniqeName)
+	var closetNode =  PresskeyNode.get_closest_key()
 	var DistanceToPressArrow = abs(TargetKey_Y_Position - position.y)
 	if DistanceToPressArrow > Miss_position: return
 	if event.is_action_pressed(UniqeName) && self == closetNode: 
@@ -55,22 +54,18 @@ func _input(event: InputEvent) -> void:
 			Global.PointInc.emit(Miss_point)
 			queue_free()
 		else: Global.PointInc.emit(Miss_point)
-func SetUp(ArrowPosition: Vector2, ArrowName: String, Arrowrrotation:float, KeyColor: Color,delay:float):
+func SetUp(PressKeyNodeP: PressKey,Delay:float):
 	await self.ready
-	$ActivateTimer.start(delay)
+	Music = get_tree().get_first_node_in_group("Music")
+	$ActivateTimer.start(Delay)
+	PressKeyNodeP.register_falling_key(self)
+	PresskeyNode = PressKeyNodeP
 	position.y = -100
-	position.x = ArrowPosition.x
-	TargetKey_Y_Position = ArrowPosition.y
-	rotation = Arrowrrotation
-	UniqeName = ArrowName
-	modulate = KeyColor
-
-func SetActivate(value:bool,timer_has_start: bool):
-	if name == "FallkingKey":
-		print("BEFORE: ",IsActivate)
-		print("TIMER HAS START: ", timer_has_start)
-	IsActivate = value
-
-
+	position.x = PressKeyNodeP.position.x
+	TargetKey_Y_Position = PressKeyNodeP.position.y
+	rotation = PressKeyNodeP.rotation
+	UniqeName = PressKeyNodeP.UniqueName
+	modulate = PressKeyNodeP.KeyColor
 func _on_activate_timer_timeout() -> void:
-	SetActivate(true,false)
+	IsActivate = true
+	$ReachPressKey.start()
