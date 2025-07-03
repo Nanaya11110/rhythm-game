@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Level" load_steps=4 format=3 uid="uid://dh5q43is8fbhk"]
+[gd_resource type="Resource" script_class="Level" load_steps=4 format=3 uid="uid://ys6i0hsphdnf"]
 
 [ext_resource type="Script" uid="uid://dpnlc4hyk5mma" path="res://Resource/LevelInfoResource.gd" id="1_l4i1b"]
 [ext_resource type="Texture2D" uid="uid://s5r3kijshyab" path="res://Asset/Image/Song_Background/Eternal_City/main_menu.png" id="1_rgqua"]
@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_l4i1b")
 name = "Test"
-fk_times = "[[1.47446715831757], [1.67473924160004], [1.87791383266449], []]"
-fk_hold = "[[[2.7951021194458, 0.47020411491394], [4.56562376022339, 0.33088397979736]], [[3.24498867988586, 0.44698405265808]], [[3.67165541648865, 0.4266664981842]], [[4.16217708587646, 0.41505670547485]]]"
+fk_times = "[[1.51510202884674, 2.7951021194458], [1.71827661991119, 3.24498867988586, 4.6207709312439], [1.94176876544952, 4.11863946914673], [3.68036270141602]]"
+fk_hold = "[[], [], [], []]"
 music = ExtResource("2_6d0bp")
 BackgroundImage = ExtResource("1_rgqua")
 Difficulty = 5
