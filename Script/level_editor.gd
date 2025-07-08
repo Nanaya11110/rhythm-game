@@ -4,7 +4,7 @@ var In_edit_mode:= false
 
 var fk_output_array:= [[],[],[],[]]
 var fk_holding_output_array:= [[],[],[],[]]
-var FallingTime := 1.28320500000006
+var FallingTime := Global.Falling_Time
 
 
 var CurrentLevelName := "Eternal_City"

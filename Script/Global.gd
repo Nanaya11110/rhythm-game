@@ -11,6 +11,6 @@ signal SongFinished()
 signal ChangeMusicVolume(value: float)
 signal ChangeSoundEffectVolume(value: float)
 
-var Falling_Time:=1.283
+var Falling_Time:= 1.28320500000006
 var CurrentSong: Level
 var EditMode:= false

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Level" load_steps=4 format=3 uid="uid://ys6i0hsphdnf"]
+[gd_resource type="Resource" script_class="Level" load_steps=4 format=3 uid="uid://cf5t2guroquj2"]
 
 [ext_resource type="Script" uid="uid://dpnlc4hyk5mma" path="res://Resource/LevelInfoResource.gd" id="1_l4i1b"]
 [ext_resource type="Texture2D" uid="uid://s5r3kijshyab" path="res://Asset/Image/Song_Background/Eternal_City/main_menu.png" id="1_rgqua"]
@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_l4i1b")
 name = "Test"
-fk_times = "[[1.51510202884674, 2.7951021194458], [1.71827661991119, 3.24498867988586, 4.6207709312439], [1.94176876544952, 4.11863946914673], [3.68036270141602]]"
+fk_times = "[[2.88217687606812, 4.56562376022339], [3.3088436126709], [3.7355101108551], [4.18249416351318]]"
 fk_hold = "[[], [], [], []]"
 music = ExtResource("2_6d0bp")
 BackgroundImage = ExtResource("1_rgqua")

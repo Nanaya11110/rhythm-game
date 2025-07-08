@@ -2,6 +2,8 @@ extends Node2D
 class_name HoldingKey
 
 @export var FallingSpeed :=500
+var FallingTime := Global.Falling_Time
+
 var hold_duration:= 0.0
 var UniqeName :String
 var PressKeyNode: PressKey
@@ -10,14 +12,17 @@ var TargetKey_Press_offSet:= 100
 var Is_holding :=false 
 var Has_SetUp:= false
 var IsActivate :=false
-
+var Hit_time: float
+var Start_time:float
+var Hold_tail_hit_time: float 
+var Music: AudioStreamPlayer
 @export_category("Point")
 @export var Miss_point := 0
 @export var Good_point := 20
 @export var Greate_point :=50
 @export var Perfect_point :=100
 
-@export_category("Position")
+@export_category("Press position")
 @export var Miss_position := 100
 @export var Good_position := 50
 @export var Great_position := 35
@@ -32,15 +37,23 @@ func _process(delta: float) -> void:
 	if !IsActivate: return
 	#CACULATE THE FALLING TIME IF NEED
 	#if abs(TargetKey_Y_Position - position.y) <=15: printerr(abs($ReachListenerTimer.time_left - $ReachListenerTimer.wait_time))
-	#DONT MOVE THE START IF HOLDING, JUST MOVE THE DURATION AND END POINT
-	if !Is_holding: position.y += FallingSpeed * delta
+	var song_time = Music.get_playback_position()
+	#HEAD
+	if !Is_holding: 
+		var time_until_hit = Hit_time - song_time
+		position.y = TargetKey_Y_Position - (time_until_hit * FallingSpeed)
+	# TAIL AND LINE
 	else:
-		$DurationEndPoint.position.y += FallingSpeed * delta
+		$DurationEndPoint.position.y += FallingSpeed *delta
 		var line_end = Vector2(0, $DurationEndPoint.position.y)
 		%DurationLine.points = PackedVector2Array([Vector2.ZERO, line_end])
-		#print($DurationEndPoint.position)
-	#HAS PASS THE LISTENER KEY
-	if global_position.y > TargetKey_Y_Position + TargetKey_Press_offSet || $DurationEndPoint.global_position.y > TargetKey_Y_Position + TargetKey_Press_offSet: 
+	# MISS if head passed and wasn't held
+	if global_position.y > TargetKey_Y_Position + TargetKey_Press_offSet and !Is_holding:
+		Global.PointInc.emit(Miss_point)
+		queue_free()
+
+	# MISS if tail passed or was already released before reach the tail position
+	if $DurationEndPoint.global_position.y > TargetKey_Y_Position + TargetKey_Press_offSet and !Is_holding:
 		Global.PointInc.emit(Miss_point)
 		queue_free()
 
@@ -79,11 +92,19 @@ func _input(event: InputEvent) -> void:
 			queue_free()
 	
 
-func SetUp(PressKeyNodeP: PressKey,duration:float,delay:float):
+func SetUp(PressKeyNodeP: PressKey,duration:float,pressTime:float):
 	await self.ready
-	$ActivateTimmer.start(delay)
+	#Set Up Timing
+	$ActivateTimmer.start(pressTime)
+	Music = get_tree().get_first_node_in_group("Music")
+	Hit_time = pressTime + FallingTime
+	Hold_tail_hit_time = Hit_time + duration
+	Start_time = pressTime
+	
 	PressKeyNode = PressKeyNodeP
 	PressKeyNodeP.register_falling_key(self)
+	
+	#Set up appearance
 	position.y = -100
 	position.x = PressKeyNodeP.position.x
 	TargetKey_Y_Position = PressKeyNodeP.position.y

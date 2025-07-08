@@ -1,11 +1,15 @@
 extends Sprite2D
 class_name FallingKey
 @export var FallingSpeed :=500
+var FallingTime := Global.Falling_Time
 var PresskeyNode: PressKey
 var UniqeName :String
 var TargetKey_Y_Position:int
 var TargetKey_Press_offSet:= 100
 var IsActivate :=false
+var Hit_time :float
+var Spawm_time: float
+var Spawm_Y: float
 
 @export_category("Point")
 @export var Miss_point := 0
@@ -13,7 +17,7 @@ var IsActivate :=false
 @export var Great_point :=50
 @export var Perfect_point :=100
 
-@export_category("Position")
+@export_category("Press position")
 @export var Miss_position := 100
 @export var Good_position := 50
 @export var Great_position := 35
@@ -27,7 +31,11 @@ func _exit_tree():
 	PresskeyNode.unregister_falling_key(self)
 func _process(delta: float) -> void:
 	if !IsActivate: return
-	position.y += FallingSpeed * delta
+	#position.y += FallingSpeed * delta
+	var song_time = get_tree().get_first_node_in_group("Music").get_playback_position()
+	var time_until_hit = Hit_time - song_time
+	position.y = TargetKey_Y_Position - time_until_hit * FallingSpeed
+
 	#CACULATE THE FALLING TIME IF NEED
 	#if abs(TargetKey_Y_Position - position.y) <= 5:
 		#var now = Music.get_playback_position()
@@ -54,13 +62,16 @@ func _input(event: InputEvent) -> void:
 			Global.PointInc.emit(Miss_point)
 			queue_free()
 		else: Global.PointInc.emit(Miss_point)
-func SetUp(PressKeyNodeP: PressKey,Delay:float):
+func SetUp(PressKeyNodeP: PressKey,PressTime:float):
+	Hit_time = PressTime + FallingTime
+	Spawm_time = PressTime
 	await self.ready
 	Music = get_tree().get_first_node_in_group("Music")
-	$ActivateTimer.start(Delay)
+	$ActivateTimer.start(Spawm_time)
 	PressKeyNodeP.register_falling_key(self)
 	PresskeyNode = PressKeyNodeP
 	position.y = -100
+	Spawm_Y = position.y
 	position.x = PressKeyNodeP.position.x
 	TargetKey_Y_Position = PressKeyNodeP.position.y
 	rotation = PressKeyNodeP.rotation
